@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebun</title>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-image: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2023/07/43127b8d-gp0stu87n_web_size_with_credit_line.jpg');
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            color: rgb(255, 255, 255);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            text-align: center;
+            padding: 150px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #0b9e00;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: rgb(0, 77, 11);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h1>Kebun Pak Budi</h1>
+    <p>Silahkan Pilih Menu Dibawah Ini !</p>
+
+    <div id="menu">
+        <button onclick="showtempat('Kebun')">Kebun</button>
+        <button onclick="showtempat('Alamat')">Alamat</button>
+        <button onclick="showtempat('Pesan')">Pesan</button>
+    </div>
+
+    <div id="kebun" class="hidden">
+        <h2 id="kebun-title"></h2>
+        <p id=kebun-description></p>
+        <img id="kebun-image" class="hidden" alt="gambar kebun">
+        <button onclick="backToMenu()">Kembali Ke Menu</button>
+    </div>
+
+    <script>
+        function showtempat(tempat) {
+            const title = document.getElementById('kebun-title');
+            const description = document.getElementById('kebun-description');
+            const image = document.getElementById('kebun-image');
+            const menu = document.getElementById('menu');
+            const kebun = document.getElementById('kebun');
+
+            menu.classList.add('hidden');
+            kebun.classList.remove('hidden');
+
+            if (tempat === 'Kebun') {
+                title.innerText = 'Kebun Pak Budi';
+                description.innerText = 'Ini adalah Kebunnya Pak Budi';
+                image.src = 'https://lh5.googleusercontent.com/p/AF1QipOL0u2kmhtn8_WWq-8O8AXLd0W1qiQOonW-TKCs=w408-h905-k-no';
+                image.classList.remove('hidden');
+            } else if (tempat === 'Alamat') {
+                title.innerText = 'Desa Ciengang, Sukabumi';
+                description.innerText = 'Klik di Maps "Kebun Sayur Pak Budi"';
+            } else if (tempat === 'Pesan') {
+                title.innerText = 'Pesan disini Pastinya Lebih Murah dari Pasar';
+                description.innerText = 'Pesan Melalui Chat +6281317472054';
+            }
+        }
+
+        function backToMenu() {
+            const menu = document.getElementById('menu');
+            const kebun = document.getElementById('kebun');
+            const image = document.getElementById('kebun-image');
+
+            menu.classList.remove('hidden');
+            kebun.classList.add('hidden');
+            image.classList.add('hidden');
+        }
+    </script>
+
+</body>
+
+</html>
